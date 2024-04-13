@@ -23,3 +23,12 @@ Route::get('dashboard', function () {
 });
 
 Route::get('users', [UserController::class, 'index'])->name('users.index');
+
+Route::get('users/form', [UserController::class, 'usersForm'])->name('users.form');
+
+// Ruta para crear un nuevo usuario.
+Route::post('users/saveUser', [UserController::class, 'createUser'])->name('users.createUser');
+
+// Ruta para modificar un usuario.
+Route::get('users/edit/{user}', [UserController::class, 'editUser'])->name('users.editUser');
+Route::put('users/update/{user}', [UserController::class, 'updateUser'])->name('users.updateUser');
