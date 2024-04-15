@@ -4,6 +4,8 @@ Welcome to my personal project for developing a CRM system using PHP and Laravel
 
 The main purpose of this project is to expand and refine my web development skills using the Laravel framework. In addition to strengthening my knowledge of the MVC architecture pattern and database management, this project also provides me with the opportunity to explore complementary technologies like Tailwind CSS.
 
+One of the additional objectives of this project is to gain a better understanding of internal operations within companies, business management, the usage of software, and how proper development of a system can dramatically improve the workflow of an organization.
+
 Through this initiative, I aim not only to enhance my technical skills but also to put into practice the concepts and knowledge I've gained through continuous study. This project represents a space where I can apply my ideas and creativity to develop a functional and robust system, as I progress in my journey as a developer. Join me on this journey of learning and growth!
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
