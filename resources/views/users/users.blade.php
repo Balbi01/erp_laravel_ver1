@@ -8,7 +8,8 @@
     <title>Listado de Usuarios</title>
 </head>
 <body>
-    <div class="container">
+    <x-sidebar></x-sidebar>
+    <div class="container pl-20">
         <h1>Listado de Usuarios</h1>
 
         <table>

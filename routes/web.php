@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,5 @@ Route::post('users/saveUser', [UserController::class, 'createUser'])->name('user
 // Ruta para modificar un usuario.
 Route::get('users/edit/{user}', [UserController::class, 'editUser'])->name('users.editUser');
 Route::put('users/update/{user}', [UserController::class, 'updateUser'])->name('users.updateUser');
+
+Route::get('home', [HomeController::class, 'index'])->name('home.index');

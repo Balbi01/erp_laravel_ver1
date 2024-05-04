@@ -6,9 +6,11 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    container: {
-      center: true,
+    fontFamily: {
+      'jersey': ["Jersey 10"],
+      'archivo': ["Archivo"],
     },
+
     extend: {},
   },
   plugins: [],
