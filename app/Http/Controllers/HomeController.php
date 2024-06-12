@@ -11,4 +11,9 @@ class HomeController extends Controller
     {
         return view('home.home');
     }
+
+    public function extraSidebar()
+    {
+        return view('extra-sidebar');
+    }
 }

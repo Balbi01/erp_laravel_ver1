@@ -1,223 +1,40 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Barra Lateral</title>--}}
-    <head>
-      @vite('resources/css/app.css')
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
-      />
-    </head>
-
-{{-- </head> --}}
-
-<body class="bg-red-100">
-    <span
-      class="absolute text-white text-4xl top-5 left-4 cursor-pointer"
-      onclick="openSidebar()"
-    >
-      <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
-  </span>
-  <div
-    class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px]
-    overflow-y-auto text-center bg-gray-900"
-    >
-      <div class="text-gray-100 text-xl">
-        <div class="p-2.5 mt-1 flex items-center">
-          <i class="bi bi-app-indicator px-2 py-1 rounded-md
-          bg-red-600"></i>
-          <h1 class="font-bold text-gray-200 text-[15px]
-          ml-3">Castware</h1>
-          <i
-            class="bi bi-x cursor-pointer ml-28 lg:hidden"
-            onclick="openSidebar()"
-          ></i>
-      </div>
-      <div class="my-2 bg-gray-600 h-[1px]"></div>
-    </div>
-    <div
-      class="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 text-white"
-    >
-      <i class="bi bi-search text-sm"></i>
-        <input
-          type="text"
-          placeholder="Buscar"
-          class="text-[15px] ml-4 w-full bg-transparent
-          focus:outline-none"
-        />
-    </div>
-    <div
-      class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-600 text-white"
-    >
-      <i class="bi bi-house-door-fill"></i>
-      <span class="text-[15px] ml-4 text-gray-200 font-bold">Inicio</span>
-    </div>
-    <div
-      class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-600 text-white"
-    >
-      <i class="bi bi-people-fill"></i>
-      <span
-        href="{{ route('users.index')}}"
-        class="text-[15px] ml-4 text-gray-200 font-bold"
-        onclick="logFunction()"
-        >
-        Usuarios
-      </span>
-    </div>
-    <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-600 text-white"
-    >
-      <i class="bi bi-gear-fill"></i>
-      <span class="text-[15px] ml-4 text-gray-200 font-bold">Cuenta</span>
-    </div>
-    <div class="my-4 bg-gray-600 h-[1px]"></div>
-    <div
-      class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-600 text-white"
-      onclick="dropdown()"
-    >
-      <i class="bi bi-chat-left-text-fill"></i>
-      <div class="flex justify-between w-full items-center">
-        <span class="text-[15px] ml-4 text-gray-200 font-bold">Chatbox</span>
-        <span class="text-sm rotate-180" id="arrow">
-          <i class="bi bi-chevron-down"></i>
-        </span>
-      </div>
-    </div>
-    <div
-      class="text-left text-sm mt-2 w-4/5 mx-auto text-gray font-bold"
-      id="submenu"
-        >
-        <h1 class="cursor-pointer p-2 hover:bg-red-600 text-white rounded-md mt-1">
-        Social
-        </h1>
-        <h1 class="cursor-pointer p-2 hover:bg-red-600 text-white rounded-md mt-1">
-        Personal
-      </h1>
-    </div>
-    <div
-    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-600 text-white"
-    >
-    <i class="bi bi-box-arrow-in-right"></i>
-    <span class="text-[15px] ml-4 text-gray-200 font-bold">Salir</span>
-    </div>
-  </div>
-
-  <script type="text/javascript">
-    function dropdown() {
-      document.querySelector("#submenu").classList.toggle("hidden");
-      document.querySelector("#arrow").classList.toggle("rotate-0");
-    }
-    dropdown();
-
-    function openSidebar() {
-      document.querySelector(".sidebar").classList.toggle("hidden");
-    }
-
-    function logFunction() {
-      console.log('Hola mundo');
-      window.location="{{route('users.index')}}"
-
-    }
-  </script>
-
-</body>
-
-</html>
-
-{{-- SIDERBAR ORIGINAL --}}
-{{-- <style>
-    .sidebar-hidden {
-        transform: translateX(-100%);
-        transition: transform 0.2s ease-out;
-    }
-
-    .sidebar-visible {
-        transform: translateX(0);
-        transition: transform 0.2s ease-out;
-    }
-
-    .overlay-hidden {
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.2s ease-out;
-    }
-
-    .overlay-visible {
-        opacity: 1;
-        pointer-events: auto;
-        transition: opacity 0.2s ease-out;
-    }
-</style>
-</head>
-<body>
-<div class="bg-white py-3 fixed top-0 left-0 right-0 shadow-md">
-    <button id="toggleSidebar" class="ml-4">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-            <path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75
-             0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0
-             5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
-        </svg>
-    </button>
-
-    <div id="overlay" class="bg-red-200 min-h-screen w-full fixed
-    top-0 left-0 right-0 backdrop-blur-sm overlay-hidden"></div>
-
-    <div id="sidebar" class="bg-red-800 min-h-screen w-80 fixed top-0 left-0 sidebar-hidden">
-
-        <div class="pt-3 flex-col">
-            <div class="bg-red-100 shadow-md">
-                <button id="closeSidebar" class="ml-4 text-white mb-8 flex">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                        <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75
-                        0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75
-                        0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-                    </svg>
-                    <div id="systemname" class="text-red-700 text-xl pl-5">CASTWARE</div>
-                </button>
-            </div>
-
-            <div class="">
-                <div class="text-left pl-8 text-white text-xl hover:bg-red-500 cursor-pointer mb-4 drop-shadow-xl">
-                    USUARIOS
-                </div>
-                <div class="text-left pl-8 text-white text-xl hover:bg-red-500 cursor-pointer mb-4">
-                    PROSPECTOS
-                </div>
-                <div class="text-left pl-8 text-white text-xl hover:bg-red-500 cursor-pointer mb-4">
-                    CLIENTES
-                </div>
-                <div class="text-left pl-8 text-white text-xl hover:bg-red-500 cursor-pointer mb-4">
-                    SISTEMA
-                </div>
-                <div class="text-left pl-8 text-white text-xl hover:bg-red-500 cursor-pointer mb-4">
-                    INICIO
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-        const toggleSidebarButton = document.getElementById('toggleSidebar');
-        const closeSidebarButton = document.getElementById('closeSidebar');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-
-        toggleSidebarButton.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-hidden');
-            sidebar.classList.toggle('sidebar-visible');
-            overlay.classList.toggle('overlay-hidden');
-            overlay.classList.toggle('overlay-visible');
-        });
-
-        closeSidebarButton.addEventListener('click', () => {
-            sidebar.classList.add('sidebar-hidden');
-            sidebar.classList.remove('sidebar-visible');
-            overlay.classList.add('overlay-hidden');
-            overlay.classList.remove('overlay-visible');
-        });
-    </script>
-    --}}
+{{-- Sidebar --}}
+<ul class="menu bg-base-200 w-56 max-h-full rounded-box">
+    {{-- Inicio --}}
+    <li>
+        <a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 h-5 w-5 mt-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+            Inicio
+        </a>
+    </li>
+    {{-- Usuarios --}}
+    <li>
+        <a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 h-5 w-5 mt-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+            </svg>
+            Usuarios
+        </a>
+    </li>
+    {{-- Prospectos --}}
+    <li>
+        <a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 h-5 w-5 mt-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m6.115 5.19.319 1.913A6 6 0 0 0 8.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 0 0 2.288-4.042 1.087 1.087 0 0 0-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 0 1-.98-.314l-.295-.295a1.125 1.125 0 0 1 0-1.591l.13-.132a1.125 1.125 0 0 1 1.3-.21l.603.302a.809.809 0 0 0 1.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 0 0 1.528-1.732l.146-.292M6.115 5.19A9 9 0 1 0 17.18 4.64M6.115 5.19A8.965 8.965 0 0 1 12 3c1.929 0 3.716.607 5.18 1.64" />
+            </svg>
+            Prospectos
+        </a>
+    </li>
+    {{-- Ajustes CRM --}}
+    <li>
+        <a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 h-5 w-5 mt-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            Ajustes CRM
+        </a>
+    </li>
+</ul>

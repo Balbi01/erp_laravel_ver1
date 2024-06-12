@@ -10,9 +10,9 @@ export default {
       'jersey': ["Jersey 10"],
       'archivo': ["Archivo"],
     },
-
-    extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
 }
 

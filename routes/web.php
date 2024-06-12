@@ -20,7 +20,11 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard', function () {
-    return view('dasboard');
+    return view('dashboard');
+});
+
+Route::get('provisionalSidebar', function() {
+    return view('extra-sidebar');
 });
 
 Route::get('users', [UserController::class, 'index'])->name('users.index');
